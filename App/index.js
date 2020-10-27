@@ -2,7 +2,7 @@ import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
-// import Initializing from './screens/Initializing';
+import Initializing from './screens/Initializing';
 import NewThread from './screens/NewThread';
 import Threads from './screens/Threads';
 import Messages from './screens/Messages';
@@ -50,9 +50,9 @@ const MessagingWithModal = createStackNavigator(
 );
 
 const App = createSwitchNavigator({
-  // Initializing: {
-  //   screen: Initializing,
-  // },
+  Initializing: {
+    screen: Initializing,
+  },
   Messaging: {
     screen: MessagingWithModal,
   },

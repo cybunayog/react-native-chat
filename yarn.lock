@@ -6673,10 +6673,10 @@ union-value@^1.0.0:
     is-extendable "^0.1.1"
     set-value "^2.0.1"
 
-unique-names-generator@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/unique-names-generator/-/unique-names-generator-4.1.1.tgz#e511b59021d98a1b5b697f46b2af944a419c3a1c"
-  integrity sha512-f3FzkJEBVUoUueeA17DzfOqa8eT7VinEKOP32Wdqbe8SzSkU/4afIEfm4KP5W+GCALpUQmW3X/SdSyTP5ES5MQ==
+unique-names-generator@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/unique-names-generator/-/unique-names-generator-3.1.1.tgz#ab0e38edf7a3e0d8dc49eb8f235820601d7cbaba"
+  integrity sha512-IYOH1XB0H3rXlXT94PjxB/EOIbu63AnA0AkelIs795a1ylDPZ0Zn9Zg7he/lLYnSOHvYeuMMcclhWkNW7REYyA==
 
 universalify@^0.1.0:
   version "0.1.2"

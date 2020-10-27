@@ -20,7 +20,7 @@
     "react-native-screens": "^2.0.0-alpha.27",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^2.0.15",
-    "unique-names-generator": "^4.1.1"
+    "unique-names-generator": "3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
