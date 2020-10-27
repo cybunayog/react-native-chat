@@ -1,8 +1,8 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import firebase from 'react-native-firebase';
 
 import {ThreadRow, Separator} from '../components/ThreadRow';
+import {listenToThreads} from 'Chat/App/firebase';
 
 export default class Threads extends React.Component {
   state = {
@@ -10,24 +10,20 @@ export default class Threads extends React.Component {
   };
 
   componentDidMount() {
-    this.removeThreadListener = firebase
-      .firestore()
-      .collection('MESSAGE_THREADS')
-      .orderBy('latestMessage.createdAt', 'desc')
-      .onSnapshot(querySnapshot => {
-        // returns array of threads
-        const threads = querySnapshot.docs.map(doc => {
-          console.log(doc.id, doc.data());
-          return {
-            _id: doc.id,
-            name: '',
-            latestMessage: {text: ''},
-            ...doc.data(),
-          };
-        });
-
-        this.setState({threads});
+    this.removeThreadListener = listenToThreads().onSnapshot(querySnapshot => {
+      // returns array of threads
+      const threads = querySnapshot.docs.map(doc => {
+        console.log(doc.id, doc.data());
+        return {
+          _id: doc.id,
+          name: '',
+          latestMessage: {text: ''},
+          ...doc.data(),
+        };
       });
+
+      this.setState({threads});
+    });
   }
 
   componentWillUnmount() {
