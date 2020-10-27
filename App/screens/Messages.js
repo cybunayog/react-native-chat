@@ -1,7 +1,12 @@
 import React from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 
-import {listenToMessages, createMessage, currentUser} from 'Chat/App/firebase';
+import {
+  listenToMessages,
+  createMessage,
+  currentUser,
+  markThreadLastRead,
+} from 'Chat/App/firebase';
 
 export default class Messages extends React.Component {
   state = {
@@ -40,6 +45,10 @@ export default class Messages extends React.Component {
   }
 
   componentWillUnmount() {
+    const thread = this.props.navigation.getParam('thread');
+
+    // user last saw this message thread
+    markThreadLastRead(thread._id);
     if (this.removeMessagesListener) {
       this.removeMessagesListener();
     }
