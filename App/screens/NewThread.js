@@ -20,6 +20,7 @@ export default class NewThread extends React.Component {
             name: this.state.name,
             latestMessage: {
               text: `${this.state.name} created.`,
+              createdAt: new Date().getTime(),
             },
           })
           .then(() => {
