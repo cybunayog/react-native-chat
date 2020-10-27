@@ -13,7 +13,7 @@ export default class NewThread extends React.Component {
   handlePress = () => {
     if (this.state.name.length > 0) {
       this.setState({loading: true}, () => {
-        firebase
+        return firebase
           .firestore()
           .collection('MESSAGE_THREADS')
           .add({
@@ -23,7 +23,13 @@ export default class NewThread extends React.Component {
               createdAt: new Date().getTime(),
             },
           })
-          .then(() => {
+          .then(docRef => {
+            docRef.collection('MESSAGES').add({
+              text: `${this.state.name} created.`,
+              createdAt: new Date().getTime(),
+              system: true,
+            });
+
             this.props.navigation.pop();
           })
           .finally(() => {
